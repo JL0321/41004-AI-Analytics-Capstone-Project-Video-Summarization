@@ -5,13 +5,12 @@ from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api.formatters import TextFormatter
 import torch
 from transformers import PegasusForConditionalGeneration, PegasusTokenizer
-torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
+torch_device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 root = Tk()
 
 e = Entry(root, width=50)
-
 
 # Adding responsiveness to GUI
 n_rows =10
@@ -36,10 +35,7 @@ def makeSummary():
     reddit_labels(data)
     torch.cuda.empty_cache()
     newsroom_labels(data)
-    torch.cuda.empty_cache()
-    model = None
-    torch.cuda.empty_cache()
-    
+    torch.cuda.empty_cache()  
     
 def individual_summary(src_text, length_option):
     # tokenize without truncation
@@ -73,20 +69,18 @@ def CNN_labels(data):
     length_option = horizontal.get()
     cnn_label = Label(root, text="CNN Dailymail Summary", pady = "10").grid(row=7, column = 1)
     CNN_MAIL = Text(root, height=10, width=50)
-    # insert tgt_text function here and load CNN model
+    # load and make summary using CNN model
     loadCNN()
     tgt_text = individual_summary(data, length_option)
     
-    #CNN_MAIL.insert(END, data)
     CNN_MAIL.insert(END, tgt_text)
     CNN_MAIL.grid(row=8, column = 1)
 
 def reddit_labels(data):
     length_option = horizontal.get()
-    # insert tgt_text function here and load REDDIT model
     reddit_label = Label(root, text="Reddit Summary", pady = "10").grid(row=7, column = 2)
     REDDIT = Text(root, height=10, width=50)
-    
+    # load and make summary using reddit model
     loadReddit()
     tgt_text = individual_summary(data, length_option)
     
@@ -95,10 +89,9 @@ def reddit_labels(data):
 
 def newsroom_labels(data):
     length_option = horizontal.get()
-    # insert tgt_text function here and load NEWSROOM model
     newsroom_label = Label(root, text="Newsroom Summary", pady = "10").grid(row=7, column = 3)
     NEWSROOM = Text(root, height=10, width=50)
-
+    # load and make summary using newsroom model
     loadNews()
     tgt_text = individual_summary(data, length_option)
 
