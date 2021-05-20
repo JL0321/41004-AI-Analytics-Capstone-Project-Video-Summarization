@@ -9,3 +9,7 @@ the packages required are:
   - youtube_transcript_api
   - pytorch
   - transformers from huggingface
+
+It will run on the gpu if cuda is available, otherwise on cpu
+
+The video link must contain english captions enabled for the youtube api to fetch the transcript
