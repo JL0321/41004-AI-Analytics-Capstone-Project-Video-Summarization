@@ -12,4 +12,6 @@ the packages required are:
 
 It will run on the gpu if cuda is available, otherwise on cpu
 
-The video link must contain english captions enabled for the youtube api to fetch the transcript
+The video link must have english captions enabled for the youtube api to fetch the transcript
+
+link to the demo video: https://youtu.be/COhIRuz009A
