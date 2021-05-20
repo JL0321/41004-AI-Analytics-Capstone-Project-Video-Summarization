@@ -55,7 +55,7 @@ def individual_summary(src_text, length_option):
         chunk_end += tokenizer.model_max_length
     
     # generate a summary on each batch
-    summary_ids_lst = [model.generate(inputs, num_beams=4, length_penalty=length_option, repetition_penalty=2.0,  early_stopping=True) for inputs in inputs_batch_lst]
+    summary_ids_lst = [model.generate(inputs, num_beams=4, length_penalty=length_option, repetition_penalty=3.0,  early_stopping=True) for inputs in inputs_batch_lst]
     
     # decode the output and join into one string with one paragraph per summary batch
     summary_batch_lst = []
@@ -148,7 +148,7 @@ def myClick():
 yt_label = Label(root, text="Insert Youtube Link Below", pady = "10").grid(row=0, column = 2)
 
 param_label = Label(root, text="Change Summary Length Parameter Below", pady = "10").grid(row=3, column = 2)
-horizontal = Scale(root, from_=0.5, to=5, resolution = 0.5, orient=HORIZONTAL)
+horizontal = Scale(root, from_=0.5, to=10, resolution = 0.1, orient=HORIZONTAL)
 horizontal.grid(row=4, column = 2)
 
 summarise_label = Label(root, text="Click button below to summarise", pady = "10").grid(row=5, column = 2)
