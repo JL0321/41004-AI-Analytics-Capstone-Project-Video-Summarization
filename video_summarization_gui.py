@@ -148,7 +148,7 @@ def myClick():
 yt_label = Label(root, text="Insert Youtube Link Below", pady = "10").grid(row=0, column = 2)
 
 param_label = Label(root, text="Change Summary Length Parameter Below", pady = "10").grid(row=3, column = 2)
-horizontal = Scale(root, from_=0.5, to=10, resolution = 0.1, orient=HORIZONTAL)
+horizontal = Scale(root, from_=0.1, to=10, resolution = 0.1, orient=HORIZONTAL)
 horizontal.grid(row=4, column = 2)
 
 summarise_label = Label(root, text="Click button below to summarise", pady = "10").grid(row=5, column = 2)
